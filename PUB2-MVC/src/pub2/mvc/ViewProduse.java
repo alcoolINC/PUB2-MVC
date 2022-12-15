@@ -59,25 +59,10 @@ public class ViewProduse extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         butonAdaugareProdus.setText("adauga");
-        butonAdaugareProdus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonAdaugareProdusActionPerformed(evt);
-            }
-        });
 
         butonStergereProdus.setText("sterge");
-        butonStergereProdus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonStergereProdusActionPerformed(evt);
-            }
-        });
 
         butonModificareProdus.setText("modifica");
-        butonModificareProdus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonModificareProdusActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("nume");
 
@@ -133,23 +118,12 @@ public class ViewProduse extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1MouseClicked
-
-    private void butonAdaugareProdusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonAdaugareProdusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonAdaugareProdusActionPerformed
-
-    private void butonStergereProdusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonStergereProdusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonStergereProdusActionPerformed
-
-    private void butonModificareProdusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonModificareProdusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonModificareProdusActionPerformed
 
     /**
      * @param args the command line arguments

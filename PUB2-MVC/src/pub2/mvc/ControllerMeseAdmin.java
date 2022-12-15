@@ -41,6 +41,7 @@ public class ControllerMeseAdmin {
         view.setAlwaysOnTop(true);
         view.setVisible(true);
         view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        view.getLabel().setText(String.valueOf(ModelLogin.getIdUserLogat()));
     }
 
     private void updateView() {

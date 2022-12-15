@@ -5,13 +5,14 @@
  */
 package pub2.mvc;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
  *
  * @author User
  */
-public class ViewMeseAngajat extends javax.swing.JFrame{
+public class ViewMeseAngajat extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewMeseAngajat
@@ -19,9 +20,15 @@ public class ViewMeseAngajat extends javax.swing.JFrame{
     public ViewMeseAngajat() {
         initComponents();
     }
-    public JPanel getPanou(){
+
+    public JPanel getPanou() {
         return panou;
     }
+
+    public JLabel getLabel() {
+        return labelIdUser;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +39,7 @@ public class ViewMeseAngajat extends javax.swing.JFrame{
     private void initComponents() {
 
         panou = new javax.swing.JPanel();
+        labelIdUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +56,8 @@ public class ViewMeseAngajat extends javax.swing.JFrame{
             .addGap(0, 461, Short.MAX_VALUE)
         );
 
+        labelIdUser.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -55,7 +65,9 @@ public class ViewMeseAngajat extends javax.swing.JFrame{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panou, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addComponent(labelIdUser)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -63,9 +75,14 @@ public class ViewMeseAngajat extends javax.swing.JFrame{
                 .addContainerGap()
                 .addComponent(panou, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(labelIdUser)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -104,6 +121,7 @@ public class ViewMeseAngajat extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel labelIdUser;
     private javax.swing.JPanel panou;
     // End of variables declaration//GEN-END:variables
 }

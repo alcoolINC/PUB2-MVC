@@ -39,6 +39,7 @@ public class ViewComanda extends javax.swing.JFrame {
         butonAnulare = new javax.swing.JButton();
         butonPlata = new javax.swing.JButton();
         campTotal = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,27 +64,14 @@ public class ViewComanda extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTableProduse);
 
         butonAdaugareProdus.setText("adauga produs");
-        butonAdaugareProdus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonAdaugareProdusActionPerformed(evt);
-            }
-        });
 
         butonAnulare.setText("anuleaza comanda");
-        butonAnulare.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonAnulareActionPerformed(evt);
-            }
-        });
 
         butonPlata.setText("plata cash");
-        butonPlata.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonPlataActionPerformed(evt);
-            }
-        });
 
         campTotal.setText("total");
+
+        jButton1.setText("plata card");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,13 +80,16 @@ public class ViewComanda extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(413, 413, 413)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(campTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(butonAnulare, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(butonAdaugareProdus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
-                    .addComponent(butonPlata, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(campTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(butonPlata, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -116,7 +107,9 @@ public class ViewComanda extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(butonAnulare)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(butonPlata)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(butonPlata)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(campTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -128,19 +121,8 @@ public class ViewComanda extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void butonAdaugareProdusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonAdaugareProdusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonAdaugareProdusActionPerformed
-
-    private void butonAnulareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonAnulareActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonAnulareActionPerformed
-
-    private void butonPlataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonPlataActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonPlataActionPerformed
 
     public JButton getButonAdaugareProdus() {
         return butonAdaugareProdus;
@@ -205,6 +187,7 @@ public class ViewComanda extends javax.swing.JFrame {
     private javax.swing.JButton butonAnulare;
     private javax.swing.JButton butonPlata;
     private javax.swing.JTextField campTotal;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableComanda;

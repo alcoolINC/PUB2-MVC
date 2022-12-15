@@ -38,10 +38,10 @@ public class ControllerComanda {
     }
 
     private void adaugaProdus() {
-        if (view.getTableProduse().getSelectedRowCount() != 1){
+        if (view.getTableProduse().getSelectedRowCount() != 1) {
             return;
         }
-        
+        modelComanda.getMasa().setOcupat();
         int indexRand = view.getTableProduse().getSelectedRow();
         modelComanda.adaugaProdus(modelProduse, indexRand);
         view.getCampTotal().setText(String.valueOf(modelComanda.getTotal()));
@@ -50,6 +50,7 @@ public class ControllerComanda {
     private void anuleaza() {
         modelComanda.reseteaza();
         view.getCampTotal().setText("0");
+        modelComanda.getMasa().setLiber();
     }
 
     private void plateste() {

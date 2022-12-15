@@ -15,17 +15,24 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ModelComanda {
 
+    private Masa masa; // Camp masa necesar pt workaround
     private ArrayList<Produs> produse;
     private Nota nota;
     private DefaultTableModel tableComanda;
 
-    public ModelComanda(int idMasa, int idUser) {
-        nota = new Nota(idUser, idMasa, 0);
+    public ModelComanda(Masa masa, int idUser) {
+        this.masa = masa;
+        nota = new Nota(idUser, masa.getId(), 0);
         produse = new ArrayList();
+        tableComanda = new DefaultTableModel(new String[]{"id", "nume", "pret"} , 0);
     }
 
-    public void setTable(JTable tableComanda) {
-        this.tableComanda = (DefaultTableModel) tableComanda.getModel();
+    public DefaultTableModel getTable() {
+        return tableComanda;
+    }
+    
+    public Masa getMasa() {
+        return masa;
     }
 
     public void setIdMasa(int idMasa) {

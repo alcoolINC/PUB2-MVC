@@ -43,7 +43,7 @@ public class Masa {
 
     public Masa(int id, String numar, int x, int y) {
         this(numar, x, y);
-        modelComanda = new ModelComanda(id, ModelLogin.getIdUserLogat());
+        modelComanda = new ModelComanda(this, ModelLogin.getIdUserLogat());
         this.id = id;
     }
 
@@ -78,7 +78,7 @@ public class Masa {
     }
     
     public void adaugaModelComanda() {
-        this.modelComanda = new ModelComanda(id, ModelLogin.getIdUserLogat());
+        this.modelComanda = new ModelComanda(this, ModelLogin.getIdUserLogat());
     }
 
     public Boolean actualizeazaPozitieInBd(Point pozitie) {

@@ -6,6 +6,7 @@
 package pub2.mvc;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -38,43 +39,19 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
         butonGestionareProduse = new javax.swing.JButton();
         butonRaport = new javax.swing.JButton();
         panou = new javax.swing.JPanel();
+        labelIdUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         butonAdaugareMasa.setText("adauga masa");
-        butonAdaugareMasa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonAdaugareMasaActionPerformed(evt);
-            }
-        });
 
         butonModStergere.setText("mod stergere");
-        butonModStergere.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonModStergereActionPerformed(evt);
-            }
-        });
 
         butonGestionareUtilizatori.setText("gestioneaza utilizatori");
-        butonGestionareUtilizatori.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonGestionareUtilizatoriActionPerformed(evt);
-            }
-        });
 
         butonGestionareProduse.setText("gestioneaza produse");
-        butonGestionareProduse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonGestionareProduseActionPerformed(evt);
-            }
-        });
 
         butonRaport.setText("genereaza raport");
-        butonRaport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonRaportActionPerformed(evt);
-            }
-        });
 
         panou.setBackground(new java.awt.Color(153, 0, 204));
 
@@ -82,12 +59,14 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
         panou.setLayout(panouLayout);
         panouLayout.setHorizontalGroup(
             panouLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGap(0, 559, Short.MAX_VALUE)
         );
         panouLayout.setVerticalGroup(
             panouLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 380, Short.MAX_VALUE)
         );
+
+        labelIdUser.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,23 +75,36 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panou, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(butonModStergere, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(butonAdaugareMasa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campNumar, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(butonGestionareUtilizatori, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(butonGestionareProduse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(butonRaport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(labelIdUser))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(butonModStergere, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(butonGestionareUtilizatori, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(butonGestionareProduse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(butonRaport, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(butonAdaugareMasa)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(campNumar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
+                        .addGap(39, 39, 39)
+                        .addComponent(labelIdUser)
+                        .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(campNumar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(butonAdaugareMasa))
@@ -131,27 +123,8 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void butonAdaugareMasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonAdaugareMasaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonAdaugareMasaActionPerformed
-
-    private void butonModStergereActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonModStergereActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonModStergereActionPerformed
-
-    private void butonGestionareUtilizatoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonGestionareUtilizatoriActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonGestionareUtilizatoriActionPerformed
-
-    private void butonGestionareProduseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonGestionareProduseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonGestionareProduseActionPerformed
-
-    private void butonRaportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonRaportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonRaportActionPerformed
 
     public JButton getButonAdaugareMasa() {
         return butonAdaugareMasa;
@@ -179,6 +152,10 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
     
     public JPanel getPanou(){
         return panou;
+    }
+    
+    public JLabel getLabel() {
+        return labelIdUser;
     }
 
     /**
@@ -223,6 +200,7 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
     private javax.swing.JButton butonModStergere;
     private javax.swing.JButton butonRaport;
     private javax.swing.JTextField campNumar;
+    private javax.swing.JLabel labelIdUser;
     private javax.swing.JPanel panou;
     // End of variables declaration//GEN-END:variables
 }

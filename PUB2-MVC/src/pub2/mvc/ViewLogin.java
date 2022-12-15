@@ -43,11 +43,6 @@ public class ViewLogin extends javax.swing.JFrame {
         jLabel2.setText("parola");
 
         butonLogin.setText("login");
-        butonLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonLoginActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,14 +83,6 @@ public class ViewLogin extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void butonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonLoginActionPerformed
-        // TODO add your handling code here:
-        String user = campUser.getText();
-        String parola = campParola.getText();
-
-
-    }//GEN-LAST:event_butonLoginActionPerformed
 
     public JButton getButonLogin() {
         return butonLogin;

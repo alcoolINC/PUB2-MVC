@@ -9,7 +9,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -33,6 +32,7 @@ public class ControllerMeseAngajat {
         view.setAlwaysOnTop(true);
         view.setVisible(true);
         view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        view.getLabel().setText(String.valueOf(ModelLogin.getIdUserLogat()));
     }
 
     private void updateView() {
@@ -62,13 +62,17 @@ public class ControllerMeseAngajat {
     }
 
     private void afiseazaComanda(int idMasa) {
-        ViewComanda viewComanda = new ViewComanda();
         ModelComanda modelComanda = model.getById(idMasa).getModelComanda();
-        modelComanda.setTable(viewComanda.getTableComanda());
+        
+        ViewComanda viewComanda = new ViewComanda();
+        viewComanda.getTableComanda().setModel(modelComanda.getTable());
+        viewComanda.getCampTotal().setText(String.valueOf(modelComanda.getTotal()));
+
         ModelProduse modelProduse = new ModelProduse();
         modelProduse.setTable(viewComanda.getTableProduse());
         modelProduse.citesteDinBd();
         modelProduse.completeazaTable();
+
         ControllerComanda c = new ControllerComanda(modelComanda, modelProduse,
                 viewComanda);
         c.initView(idMasa);

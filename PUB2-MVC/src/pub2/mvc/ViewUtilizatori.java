@@ -65,18 +65,8 @@ public class ViewUtilizatori extends javax.swing.JFrame {
         jLabel4.setText("rol");
 
         butonAdaugareUtlizator.setText("adauga");
-        butonAdaugareUtlizator.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonAdaugareUtlizatorActionPerformed(evt);
-            }
-        });
 
         butonStergereUtilizator.setText("sterge");
-        butonStergereUtilizator.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                butonStergereUtilizatorActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,15 +142,8 @@ public class ViewUtilizatori extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void butonAdaugareUtlizatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonAdaugareUtlizatorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonAdaugareUtlizatorActionPerformed
-
-    private void butonStergereUtilizatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonStergereUtilizatorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_butonStergereUtilizatorActionPerformed
 
     /**
      * @param args the command line arguments

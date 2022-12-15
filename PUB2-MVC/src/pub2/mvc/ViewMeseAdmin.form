@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -26,17 +26,35 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="panou" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="butonModStergere" alignment="1" max="32767" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="butonAdaugareMasa" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="campNumar" min="-2" pref="56" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="labelIdUser" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="butonGestionareUtilizatori" max="32767" attributes="0"/>
-                  <Component id="butonGestionareProduse" alignment="0" max="32767" attributes="0"/>
-                  <Component id="butonRaport" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="butonModStergere" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="butonGestionareUtilizatori" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="butonGestionareProduse" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="butonRaport" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="butonAdaugareMasa" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="campNumar" min="-2" pref="44" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -46,7 +64,9 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="labelIdUser" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="campNumar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="butonAdaugareMasa" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -75,9 +95,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="adauga masa"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butonAdaugareMasaActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="campNumar">
     </Component>
@@ -85,33 +102,21 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="mod stergere"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butonModStergereActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butonGestionareUtilizatori">
       <Properties>
         <Property name="text" type="java.lang.String" value="gestioneaza utilizatori"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butonGestionareUtilizatoriActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butonGestionareProduse">
       <Properties>
         <Property name="text" type="java.lang.String" value="gestioneaza produse"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butonGestionareProduseActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="butonRaport">
       <Properties>
         <Property name="text" type="java.lang.String" value="genereaza raport"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="butonRaportActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JPanel" name="panou">
       <Properties>
@@ -123,7 +128,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="565" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="559" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -133,5 +138,10 @@
         </DimensionLayout>
       </Layout>
     </Container>
+    <Component class="javax.swing.JLabel" name="labelIdUser">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
