@@ -1,0 +1,14 @@
+$primary: white;
+
+  ul{
+    list-style: none;
+    color: $primary;
+    font-size: 32px;
+    display: flex;
+    }
+
+    li{
+      display: inline-block;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
