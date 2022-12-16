@@ -9,26 +9,26 @@ package pub2.mvc;
  *
  * @author User
  */
-public class Utilizator {
+public class User {
 
-    private String user;
-    private String nume;
-    private int id;
-    private int rol;
+    private final String username;
+    private final String alias;
+    private final int id;
+    private final int rol;
 
-    public Utilizator(int id, String user, String nume, int rol) {
+    public User(int id, String username, String alias, int rol) {
         this.id = id;
-        this.user = user;
-        this.nume = nume;
+        this.username = username;
+        this.alias = alias;
         this.rol = rol;
     }
     
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
     
-    public String getNume() {
-        return nume;
+    public String getAlias() {
+        return alias;
     }
 
     public int getId() {

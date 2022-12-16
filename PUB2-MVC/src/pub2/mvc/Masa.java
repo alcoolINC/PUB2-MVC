@@ -24,9 +24,9 @@ public class Masa {
     private static Color culoareImplicita = Color.GREEN;
     private static Color culoareOcupat = Color.YELLOW;
 
-    private JButton buton;
     private int id;
-    private ModelComanda modelComanda;
+    private Comanda comanda;
+    private JButton buton;
 
     public Masa(String text) {
         this(text, xImplicit, yImplicit);
@@ -43,7 +43,7 @@ public class Masa {
 
     public Masa(int id, String numar, int x, int y) {
         this(numar, x, y);
-        modelComanda = new ModelComanda(this, ModelLogin.getIdUserLogat());
+        comanda = new Comanda(id, Login.getIdUserLogat());
         this.id = id;
     }
 
@@ -51,14 +51,13 @@ public class Masa {
         return id;
     }
 
-    public ModelComanda getModelComanda() {
-        return modelComanda;
+    public Comanda getComanda() {
+        return comanda;
     }
 
     public void setId(int id) {
         this.id = id;
-        //actualizeaza id-ul mesei din model comanda
-        modelComanda.setIdMasa(id);
+        comanda.setIdMasa(id);
     }
 
     public void setOcupat() {
@@ -77,8 +76,8 @@ public class Masa {
         return latura;
     }
     
-    public void adaugaModelComanda() {
-        this.modelComanda = new ModelComanda(this, ModelLogin.getIdUserLogat());
+    public void adaugaComanda() {
+        this.comanda = new Comanda(id, Login.getIdUserLogat());
     }
 
     public Boolean actualizeazaPozitieInBd(Point pozitie) {

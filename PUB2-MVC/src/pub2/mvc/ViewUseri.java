@@ -13,12 +13,12 @@ import javax.swing.JTextField;
  *
  * @author User
  */
-public class ViewUtilizatori extends javax.swing.JFrame {
+public class ViewUseri extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewUtilizatori
      */
-    public ViewUtilizatori() {
+    public ViewUseri() {
         initComponents();
     }
 
@@ -56,9 +56,9 @@ public class ViewUtilizatori extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setText("user");
+        jLabel1.setText("username");
 
-        jLabel2.setText("nume");
+        jLabel2.setText("alias");
 
         jLabel3.setText("parola");
 
@@ -162,20 +162,21 @@ public class ViewUtilizatori extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewUtilizatori.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewUseri.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewUtilizatori.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewUseri.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewUtilizatori.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewUseri.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewUtilizatori.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewUseri.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewUtilizatori().setVisible(true);
+                new ViewUseri().setVisible(true);
             }
         });
     }

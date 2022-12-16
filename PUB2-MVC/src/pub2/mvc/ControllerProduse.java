@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
  */
 public class ControllerProduse {
 
-    private ModelProduse model;
+    private Produse model;
     private ViewProduse view;
 
-    public ControllerProduse(ModelProduse model, ViewProduse view) {
+    public ControllerProduse(Produse model, ViewProduse view) {
         this.model = model;
         this.view = view;
 

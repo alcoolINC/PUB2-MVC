@@ -6,33 +6,26 @@
 package pub2.mvc;
 
 import java.util.ArrayList;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author User
  */
-public class ModelComanda {
+public class Comanda {
 
-    private Masa masa; // Camp masa necesar pt workaround
     private ArrayList<Produs> produse;
     private Nota nota;
     private DefaultTableModel tableComanda;
 
-    public ModelComanda(Masa masa, int idUser) {
-        this.masa = masa;
-        nota = new Nota(idUser, masa.getId(), 0);
+    public Comanda(int idMasa, int idUser) {
+        nota = new Nota(idUser, idMasa, 0);
         produse = new ArrayList();
         tableComanda = new DefaultTableModel(new String[]{"id", "nume", "pret"} , 0);
     }
 
     public DefaultTableModel getTable() {
         return tableComanda;
-    }
-    
-    public Masa getMasa() {
-        return masa;
     }
 
     public void setIdMasa(int idMasa) {
@@ -43,7 +36,7 @@ public class ModelComanda {
         return nota.getTotal();
     }
 
-    public void adaugaProdus(ModelProduse modelProduse, int indexRand) {
+    public void adaugaProdus(Produse modelProduse, int indexRand) {
         DefaultTableModel tableProduse = modelProduse.getTable();
         int id = Integer.parseInt((String) tableProduse.getValueAt(indexRand, 0));
         String nume = (String) tableProduse.getValueAt(indexRand, 1);

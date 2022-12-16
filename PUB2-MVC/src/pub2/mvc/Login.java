@@ -14,20 +14,20 @@ import java.sql.SQLException;
  *
  * @author User
  */
-public class ModelLogin {
+public class Login {
 
     private static int idUserLogat;
     
-    private String user;
+    private String username;
     private String parola;
 
-    public ModelLogin(String user, String parola) {
-        this.user = user;
+    public Login(String user, String parola) {
+        this.username = user;
         this.parola = parola;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setParola(String parola) {
@@ -44,7 +44,7 @@ public class ModelLogin {
             Connection con = BazaDeDate.getCon();
             String sql = "SELECT username, parola, rol, id FROM Utilizator WHERE username = ? AND parola = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setString(1, user);
+            stmt.setString(1, username);
             stmt.setString(2, parola);
             ResultSet rs = stmt.executeQuery();
 

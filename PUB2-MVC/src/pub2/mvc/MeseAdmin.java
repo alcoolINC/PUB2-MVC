@@ -18,13 +18,13 @@ import javax.swing.JPanel;
  *
  * @author User
  */
-public class ModelMeseAdmin extends ModelMese {
+public class MeseAdmin extends MeseAngajat {
 
     private Point pozitieStart;
     private JButton masaSelectata;
     private Boolean modStergere;
 
-    public ModelMeseAdmin() {
+    public MeseAdmin() {
         super();
         pozitieStart = null;
         masaSelectata = null;

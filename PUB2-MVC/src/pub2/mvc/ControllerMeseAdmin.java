@@ -25,10 +25,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControllerMeseAdmin {
 
-    private ModelMeseAdmin model;
+    private MeseAdmin model;
     private ViewMeseAdmin view;
 
-    public ControllerMeseAdmin(ModelMeseAdmin model, ViewMeseAdmin view) {
+    public ControllerMeseAdmin(MeseAdmin model, ViewMeseAdmin view) {
         this.model = model;
         this.view = view;
         initView();
@@ -41,7 +41,7 @@ public class ControllerMeseAdmin {
         view.setAlwaysOnTop(true);
         view.setVisible(true);
         view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        view.getLabel().setText(String.valueOf(ModelLogin.getIdUserLogat()));
+        view.getLabel().setText(String.valueOf(Login.getIdUserLogat()));
     }
 
     private void updateView() {
@@ -165,7 +165,7 @@ public class ControllerMeseAdmin {
             JOptionPane.showMessageDialog(new JFrame(), "Exista alta masa in pozitia de spawn.");
             return;
         }
-        masa.adaugaModelComanda();
+        masa.adaugaComanda();
         eroare = model.adaugaInBd(masa);
         if (eroare) {
             JOptionPane.showMessageDialog(new JFrame(), "EROARE ADAUGARE MASA IN BD");
@@ -196,11 +196,11 @@ public class ControllerMeseAdmin {
     }
 
     public void gestioneazaProduse() {
-        new ControllerProduse(new ModelProduse(), new ViewProduse());
+        new ControllerProduse(new Produse(), new ViewProduse());
     }
 
     public void gestioneazaUtilizatori() {
-        new ControllerUtilizatori(new ModelUtilizatori(), new ViewUtilizatori());
+        new ControllerUseri(new Useri(), new ViewUseri());
     }
 
     public void genereazaRaport() {

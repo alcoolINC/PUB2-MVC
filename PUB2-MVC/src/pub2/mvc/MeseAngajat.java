@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  *
  * @author User
  */
-public class ModelMese {
+public class MeseAngajat {
 
     private ArrayList<Masa> mese = null;
 

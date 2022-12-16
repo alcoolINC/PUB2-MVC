@@ -17,9 +17,9 @@ import javax.swing.JFrame;
 public class ControllerMeseAngajat {
 
     ViewMeseAngajat view;
-    ModelMese model;
+    MeseAngajat model;
 
-    public ControllerMeseAngajat(ModelMese model, ViewMeseAngajat view) {
+    public ControllerMeseAngajat(MeseAngajat model, ViewMeseAngajat view) {
         this.model = model;
         this.view = view;
         initView();
@@ -32,7 +32,7 @@ public class ControllerMeseAngajat {
         view.setAlwaysOnTop(true);
         view.setVisible(true);
         view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        view.getLabel().setText(String.valueOf(ModelLogin.getIdUserLogat()));
+        view.getLabel().setText(String.valueOf(Login.getIdUserLogat()));
     }
 
     private void updateView() {
@@ -62,19 +62,19 @@ public class ControllerMeseAngajat {
     }
 
     private void afiseazaComanda(int idMasa) {
-        ModelComanda modelComanda = model.getById(idMasa).getModelComanda();
+        Comanda comanda = model.getById(idMasa).getComanda();
         
         ViewComanda viewComanda = new ViewComanda();
-        viewComanda.getTableComanda().setModel(modelComanda.getTable());
-        viewComanda.getCampTotal().setText(String.valueOf(modelComanda.getTotal()));
+        viewComanda.getTableComanda().setModel(comanda.getTable());
+        viewComanda.getCampTotal().setText(String.valueOf(comanda.getTotal()));
 
-        ModelProduse modelProduse = new ModelProduse();
+        Produse modelProduse = new Produse();
         modelProduse.setTable(viewComanda.getTableProduse());
         modelProduse.citesteDinBd();
         modelProduse.completeazaTable();
 
-        ControllerComanda c = new ControllerComanda(modelComanda, modelProduse,
-                viewComanda);
+        ControllerComanda c = new ControllerComanda(model.getById(idMasa),
+                modelProduse, viewComanda);
         c.initView(idMasa);
         c.initController();
     }

@@ -14,10 +14,10 @@ import javax.swing.JOptionPane;
  */
 public class ControllerLogin {
 
-    ModelLogin model;
+    Login model;
     ViewLogin view;
 
-    public ControllerLogin(ModelLogin model, ViewLogin view) {
+    public ControllerLogin(Login model, ViewLogin view) {
         this.model = model;
         this.view = view;
         initController();
@@ -33,7 +33,7 @@ public class ControllerLogin {
     }
 
     private void valideaza() {
-        model.setUser(view.getCampUser().getText());
+        model.setUsername(view.getCampUser().getText());
         model.setParola(view.getCampParola().getText());
         int status = model.valideaza();
         switch (status) {
@@ -41,11 +41,11 @@ public class ControllerLogin {
                 JOptionPane.showMessageDialog(new JFrame(), "User sau parola gresita!");
                 return;
             case 0:
-                new ControllerMeseAngajat(new ModelMese(), new ViewMeseAngajat());
+                new ControllerMeseAngajat(new MeseAngajat(), new ViewMeseAngajat());
                 //this.dispose();
                 return;
             case 1:
-                new ControllerMeseAdmin(new ModelMeseAdmin(), new ViewMeseAdmin());
+                new ControllerMeseAdmin(new MeseAdmin(), new ViewMeseAdmin());
                 //this.dispose();
                 return;
             case -2:

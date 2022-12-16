@@ -13,13 +13,13 @@ import javax.swing.JFrame;
  */
 public class ControllerComanda {
 
-    private ModelComanda modelComanda;
-    private ModelProduse modelProduse;
+    private Masa masa;
+    private Produse modelProduse;
     private ViewComanda view;
 
-    public ControllerComanda(ModelComanda modelComanda, ModelProduse modelProduse,
+    public ControllerComanda(Masa masa, Produse modelProduse,
             ViewComanda view) {
-        this.modelComanda = modelComanda;
+        this.masa = masa;
         this.modelProduse = modelProduse;
         this.view = view;
     }
@@ -41,20 +41,20 @@ public class ControllerComanda {
         if (view.getTableProduse().getSelectedRowCount() != 1) {
             return;
         }
-        modelComanda.getMasa().setOcupat();
+        masa.setOcupat();
         int indexRand = view.getTableProduse().getSelectedRow();
-        modelComanda.adaugaProdus(modelProduse, indexRand);
-        view.getCampTotal().setText(String.valueOf(modelComanda.getTotal()));
+        masa.getComanda().adaugaProdus(modelProduse, indexRand);
+        view.getCampTotal().setText(String.valueOf(masa.getComanda().getTotal()));
     }
 
     private void anuleaza() {
-        modelComanda.reseteaza();
+        masa.getComanda().reseteaza();
         view.getCampTotal().setText("0");
-        modelComanda.getMasa().setLiber();
+        masa.setLiber();
     }
 
     private void plateste() {
-        modelComanda.plateste();
+        masa.getComanda().plateste();
         // Reseteaza produsele si totalul
         anuleaza();
     }

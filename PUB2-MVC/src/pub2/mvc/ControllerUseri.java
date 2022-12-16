@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class ControllerUtilizatori {
+public class ControllerUseri {
 
-    private ModelUtilizatori model;
-    private ViewUtilizatori view;
+    private Useri model;
+    private ViewUseri view;
 
-    public ControllerUtilizatori(ModelUtilizatori model, ViewUtilizatori view) {
+    public ControllerUseri(Useri model, ViewUseri view) {
         this.model = model;
         this.view = view;
 

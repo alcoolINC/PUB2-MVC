@@ -16,7 +16,7 @@ public class PUB2MVC {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        ControllerLogin c = new ControllerLogin(new ModelLogin("", ""),
+        ControllerLogin c = new ControllerLogin(new Login("", ""),
                 new ViewLogin());
     }
     
