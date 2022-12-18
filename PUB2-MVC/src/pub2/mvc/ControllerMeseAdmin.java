@@ -51,8 +51,7 @@ public class ControllerMeseAdmin {
 
     private void initController() {
         view.getPanou().addMouseListener(new MouseAdapter() {
-            //public void mouseClicked(MouseEvent e) {
-            //}
+
             public void mousePressed(MouseEvent e) {
                 mouseApasat(e);
             }
@@ -165,7 +164,6 @@ public class ControllerMeseAdmin {
             JOptionPane.showMessageDialog(new JFrame(), "Exista alta masa in pozitia de spawn.");
             return;
         }
-        masa.adaugaComanda();
         eroare = model.adaugaInBd(masa);
         if (eroare) {
             JOptionPane.showMessageDialog(new JFrame(), "EROARE ADAUGARE MASA IN BD");

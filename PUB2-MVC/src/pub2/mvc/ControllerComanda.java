@@ -8,7 +8,7 @@ package pub2.mvc;
 import javax.swing.JFrame;
 
 /**
- *
+ * 
  * @author User
  */
 public class ControllerComanda {
@@ -24,11 +24,11 @@ public class ControllerComanda {
         this.view = view;
     }
 
-    public void initView(int idMasa) {
+    public void initView() {
         view.setAlwaysOnTop(true);
         view.setVisible(true);
         view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        view.setTitle(String.valueOf(idMasa));
+        view.setTitle(masa.getButon().getText());
     }
 
     public void initController() {

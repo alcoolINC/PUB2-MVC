@@ -75,7 +75,7 @@ public class ControllerMeseAngajat {
 
         ControllerComanda c = new ControllerComanda(model.getById(idMasa),
                 modelProduse, viewComanda);
-        c.initView(idMasa);
+        c.initView();
         c.initController();
     }
 }
