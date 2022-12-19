@@ -1,8 +1,14 @@
 <template>
-  <div  v-for="product in products">
-    <ul><li>{{product.type}}</li> <li>{{product.name}}</li> <li>{{product.price}}</li> <li>{{product.qt}}</li></ul>
+  <div>
+    <ul v-for="product in products">
+      <li>{{ product.type }}</li>
+      <li>{{ product.name }}</li>
+      <li>{{ product.price }}</li>
+      <li>{{ product.qt }}</li>
+    </ul>
   </div>
 </template>
+
 
 <script setup>
 import { onBeforeMount } from "vue";
@@ -20,7 +26,7 @@ function fetchData() {
       })
     )
     .catch((err) => console.log(err.mesage));
-}
+};
 
 onBeforeMount(() => {
   fetchData();
