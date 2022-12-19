@@ -42,11 +42,11 @@ public class ControllerLogin {
                 return;
             case 0:
                 new ControllerMeseAngajat(new MeseAngajat(), new ViewMeseAngajat());
-                //this.dispose();
+                view.dispose();
                 return;
             case 1:
                 new ControllerMeseAdmin(new MeseAdmin(), new ViewMeseAdmin());
-                //this.dispose();
+                view.dispose();
                 return;
             case -2:
                 JOptionPane.showMessageDialog(new JFrame(), "EROARE CONECTARE LA BD");

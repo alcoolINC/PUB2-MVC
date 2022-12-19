@@ -29,9 +29,7 @@ public class ControllerMeseAngajat {
     }
 
     private void initView() {
-        view.setAlwaysOnTop(true);
         view.setVisible(true);
-        view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         view.getLabel().setText(String.valueOf(Login.getIdUserLogat()));
     }
 

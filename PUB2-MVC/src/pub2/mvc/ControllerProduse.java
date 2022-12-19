@@ -28,7 +28,7 @@ public class ControllerProduse {
     }
 
     private void initView() {
-        view.setAlwaysOnTop(true);
+        //view.setAlwaysOnTop(true);
         view.setVisible(true);
         view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }

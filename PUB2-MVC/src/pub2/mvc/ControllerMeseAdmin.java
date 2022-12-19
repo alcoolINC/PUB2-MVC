@@ -31,16 +31,14 @@ public class ControllerMeseAdmin {
     public ControllerMeseAdmin(MeseAdmin model, ViewMeseAdmin view) {
         this.model = model;
         this.view = view;
-        initView();
+        initView();   
         initController();
         initModel();
         updateView();
     }
 
     private void initView() {
-        view.setAlwaysOnTop(true);
         view.setVisible(true);
-        view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         view.getLabel().setText(String.valueOf(Login.getIdUserLogat()));
     }
 
@@ -51,7 +49,6 @@ public class ControllerMeseAdmin {
 
     private void initController() {
         view.getPanou().addMouseListener(new MouseAdapter() {
-
             public void mousePressed(MouseEvent e) {
                 mouseApasat(e);
             }
@@ -62,7 +59,6 @@ public class ControllerMeseAdmin {
         });
 
         view.getPanou().addMouseMotionListener(new MouseAdapter() {
-
             public void mouseDragged(MouseEvent e) {
                 mouseTras(e);
             }
@@ -183,7 +179,6 @@ public class ControllerMeseAdmin {
             masa.getButon().addMouseMotionListener(i);
         }
 
-        model.adaugaInMemorie(masa);
         view.getPanou().add(masa.getButon());
         updateView();
     }

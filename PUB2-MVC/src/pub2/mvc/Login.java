@@ -26,7 +26,7 @@ public class Login {
      */
     private String username;
     /**
-     * Parola care trebuie validat.
+     * Parola care trebuie validată.
      */
     private String parola;
 
