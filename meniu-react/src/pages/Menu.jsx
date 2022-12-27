@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import request from "../../../products.json";
+import request from "../../../PUB2-MVC/jSonProduse.json";
 import ProductFilter from "../components/product-filter";
 
 const Menu = () => {
