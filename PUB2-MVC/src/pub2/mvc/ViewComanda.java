@@ -48,7 +48,7 @@ public class ViewComanda extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "nume", "pret"
+                "id", "nume", "pret", "categorie"
             }
         ));
         jScrollPane1.setViewportView(jTableComanda);
@@ -58,7 +58,7 @@ public class ViewComanda extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "nume", "pret"
+                "id", "nume", "pret", "categorie"
             }
         ));
         jScrollPane2.setViewportView(jTableProduse);

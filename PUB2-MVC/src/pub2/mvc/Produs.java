@@ -12,13 +12,15 @@ package pub2.mvc;
 public class Produs {
 
     private String nume;
+    private String categorie;
     private int pret;
     private int id;
 
-    public Produs(int id, String nume, int pret) {
+    public Produs(int id, String nume, int pret, String categorie) {
         this.id = id;
         this.nume = nume;
         this.pret = pret;
+        this.categorie = categorie;
     }
 
     public String getNume() {
@@ -31,5 +33,9 @@ public class Produs {
 
     public int getPret() {
         return pret;
+    }
+    
+    public String getCategorie() {
+        return categorie;
     }
 }

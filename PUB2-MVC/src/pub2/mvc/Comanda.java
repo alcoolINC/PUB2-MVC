@@ -41,7 +41,8 @@ public class Comanda {
         int id = Integer.parseInt((String) tableProduse.getValueAt(indexRand, 0));
         String nume = (String) tableProduse.getValueAt(indexRand, 1);
         int pret = Integer.parseInt((String) tableProduse.getValueAt(indexRand, 2));
-        Produs produs = new Produs(id, nume, pret);
+        String categorie = (String) tableProduse.getValueAt(indexRand, 1);
+        Produs produs = new Produs(id, nume, pret, categorie);
         produse.add(produs);
         nota.setTotal(nota.getTotal() + produs.getPret());
         String[] rand = {String.valueOf(produs.getId()), produs.getNume(),

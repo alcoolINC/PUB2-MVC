@@ -52,18 +52,20 @@ public class ControllerProduse {
     private void adauga() {
         String nume = view.getCampNume().getText();
         int pret = Integer.parseInt(view.getCampPret().getText());
+        String categorie = view.getCampCategorie().getText();
 
-        Boolean eroare = model.adaugaInBd(nume, pret);
+        Boolean eroare = model.adaugaInBd(nume, pret, categorie);
         if (eroare) {
             JOptionPane.showMessageDialog(new JFrame(), "EROARE ADAUGARE PRODUS");
             return;
         }
 
         int id = BazaDeDate.returneazaUltimaCheie();
-        Produs produs = new Produs(id, nume, pret);
-        
+        Produs produs = new Produs(id, nume, pret, categorie);
+
         model.citesteDinBd();
         model.completeazaTable();
+        model.serializeaza();
         updateView();
     }
 
@@ -80,9 +82,10 @@ public class ControllerProduse {
             JOptionPane.showMessageDialog(new JFrame(), "EROARE STEGERE PRODUS");
             return;
         }
-        
+
         model.citesteDinBd();
         model.completeazaTable();
+        model.serializeaza();
         updateView();
     }
 
@@ -90,13 +93,14 @@ public class ControllerProduse {
         if (view.getTable().getSelectedColumnCount() != 1) {
             return;
         }
-        
+
         int indexRand = view.getTable().getSelectedRow();
         int id = model.getValoare(indexRand, 0);
         String nume = view.getCampNume().getText();
         int pret = Integer.parseInt(view.getCampPret().getText());
+        String categorie = view.getCampCategorie().getText();
 
-        Boolean eroare = model.modificaInBd(id, nume, pret);
+        Boolean eroare = model.modificaInBd(id, nume, pret, categorie);
         if (eroare) {
             JOptionPane.showMessageDialog(new JFrame(), "EROARE ACTUALIZARE PRODUS");
             return;
@@ -104,6 +108,7 @@ public class ControllerProduse {
 
         model.citesteDinBd();
         model.completeazaTable();
+        model.serializeaza();
         updateView();
     }
 }
