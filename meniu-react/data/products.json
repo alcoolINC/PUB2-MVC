@@ -1,0 +1,61 @@
+{
+  "products": [
+    {
+      "name": "heineken",
+      "type": "bere",
+      "price": "4",
+      "qt": "500"
+    },
+    {
+      "name": "ciucas",
+      "type": "bere",
+      "price": "3",
+      "qt": "500"
+    },
+    {
+      "name": "ursus",
+      "type": "bere",
+      "price": "6",
+      "qt": "750"
+    },
+    {
+      "name": "ciuc",
+      "type": "bere",
+      "price": "4",
+      "qt": "500"
+    },
+    {
+      "name": "beciu domnesc",
+      "type": "vin",
+      "price": "35",
+      "qt": "1000",
+      "description":"dulce"
+    },
+    {
+      "name": "jack daniels",
+      "type": "tarie",
+      "price": "15",
+      "qt": "50"
+    },
+    {
+      "name": "stalinskaya",
+      "type": "tarie",
+      "price": "10",
+      "qt": "50"
+    },
+    {
+      "name": "absolut vodka",
+      "type": "tarie",
+      "price": "10",
+      "qt": "50"
+    },
+    {
+      "name": "dacic",
+      "type": "vin",
+      "price": "35",
+      "qt": "1000",
+      "description": "demidulce"
+    }
+
+  ]
+}
