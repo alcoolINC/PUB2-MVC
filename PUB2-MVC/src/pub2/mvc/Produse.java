@@ -183,9 +183,10 @@ public class Produse {
     public void serializeaza() {
         Gson gson = new Gson();
         try (FileWriter writer = new FileWriter("jSonProduse.json")) {
-            for (Produs produs : produse) {
-                gson.toJson(produs, writer);
-            }
+           writer.write("{\n\"products\":");
+           String dateSerializate = gson.toJson(produse);
+           writer.write(dateSerializate);
+           writer.write("\n}");
         } catch (IOException e) {
         }
     }
