@@ -35,6 +35,10 @@ public class ControllerUseri {
 
     private void updateView() {
         view.getTable().repaint();
+        view.getCampNume().setText("");
+        view.getCampUser().setText("");
+        view.getCampParola().setText("");
+        view.getCampRol().setText("");
     }
 
     private void initController() {

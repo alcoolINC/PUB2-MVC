@@ -45,6 +45,7 @@ public class ControllerMeseAdmin {
     private void updateView() {
         view.getPanou().revalidate();
         view.getPanou().repaint();
+        view.getCampNumar().setText("");
     }
 
     private void initController() {

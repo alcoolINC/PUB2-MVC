@@ -109,8 +109,9 @@
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="butonAdaugareUtlizator" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="butonStergereUtilizator" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>

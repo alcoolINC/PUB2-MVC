@@ -27,6 +27,11 @@ public class ControllerLogin {
     public void initView() {
         view.setVisible(true);
     }
+    
+    public void updateView() {
+        view.getCampUser().setText("");
+        view.getCampParola().setText("");
+    }
 
     public void initController() {
         view.getButonLogin().addActionListener(e -> valideaza());
@@ -39,6 +44,7 @@ public class ControllerLogin {
         switch (status) {
             case -1:
                 JOptionPane.showMessageDialog(new JFrame(), "User sau parola gresita!");
+                updateView();
                 return;
             case 0:
                 new ControllerMeseAngajat(new MeseAngajat(), new ViewMeseAngajat());

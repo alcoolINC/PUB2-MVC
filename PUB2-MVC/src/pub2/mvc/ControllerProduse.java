@@ -35,6 +35,9 @@ public class ControllerProduse {
 
     private void updateView() {
         view.getTable().repaint();
+        view.getCampNume().setText("");
+        view.getCampPret().setText("");
+        view.getCampCategorie().setText("");
     }
 
     private void initController() {
