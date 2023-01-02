@@ -6,7 +6,7 @@ const ProductFilter = ({ products }) => {
   const [selectedFilters, setSelectedFilters] = useState([]);
 
   useEffect(() => {
-    setFilters([...new Set(products?.map((product) => product?.type))]);
+    setFilters([...new Set(products?.map((product) => product?.categorie))]);
   }, [products]);
 
   const handleClick = (filter) => {
@@ -48,7 +48,7 @@ const ProductFilter = ({ products }) => {
           }
           if (
             selectedFilters.length > 0 &&
-            selectedFilters.includes(product.type)
+            selectedFilters.includes(product.categorie)
           ) {
             return <Product data={product} key={idx} />;
           }
