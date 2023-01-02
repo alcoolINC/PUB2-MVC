@@ -32,30 +32,20 @@
                       <Component id="labelIdUser" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="butonModStergere" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="butonGestionareUtilizatori" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="butonGestionareProduse" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="butonRaport" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="butonAdaugareMasa" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="campNumar" min="-2" pref="44" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Component id="butonModStergere" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="butonGestionareUtilizatori" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="butonGestionareProduse" alignment="1" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="butonRaport" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                              <Component id="campNumar" min="-2" pref="44" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,11 +56,8 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="labelIdUser" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="campNumar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="butonAdaugareMasa" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="campNumar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="butonModStergere" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -91,11 +78,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="butonAdaugareMasa">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="adauga masa"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="campNumar">
     </Component>
     <Component class="javax.swing.JButton" name="butonModStergere">

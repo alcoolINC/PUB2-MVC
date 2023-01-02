@@ -27,11 +27,7 @@ public class Comanda {
     public DefaultTableModel getTable() {
         return tableComanda;
     }
-
-    public void setIdMasa(int idMasa) {
-        nota.setIdMasa(idMasa);
-    }
-    
+   
     public int getTotal(){
         return nota.getTotal();
     }
@@ -57,7 +53,7 @@ public class Comanda {
         tableComanda.fireTableDataChanged();
     }
 
-    public void plateste() {
-        nota.adaugaInBd();
+    public Nota getNota() {
+        return nota;
     }
 }

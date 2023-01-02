@@ -54,15 +54,6 @@ public class Masa {
     private Comanda comanda;
 
     /**
-     * Constructorul cu un parametru.
-     *
-     * @param text textul care apare pe butonul mesei din panou
-     */
-    public Masa(String text) {
-        this(text, xImplicit, yImplicit);
-    }
-
-    /**
      * Contrsutctorul cu trei parametri.
      *
      * @param text textul care apare pe butonul mesei din panou
@@ -78,7 +69,7 @@ public class Masa {
         buton.setBackground(culoareImplicita);
         buton.setText(text);
         buton.setVisible(true);
-        comanda = new Comanda(id, Login.getIdUserLogat());
+        comanda = new Comanda(0, Login.getIdUserLogat());
     }
 
     /**
@@ -91,7 +82,7 @@ public class Masa {
      */
     public Masa(int id, String numar, int x, int y) {
         this(numar, x, y);
-        this.id = id;
+        setId(id);
     }
 
     /**
@@ -119,7 +110,7 @@ public class Masa {
      */
     public void setId(int id) {
         this.id = id;
-        comanda.setIdMasa(id);
+        comanda.getNota().setIdMasa(id);
     }
 
     /**

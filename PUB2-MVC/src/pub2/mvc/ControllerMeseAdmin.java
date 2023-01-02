@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 import javax.swing.SwingUtilities;
 import static javax.swing.SwingUtilities.convertPoint;
 import javax.swing.table.DefaultTableModel;
@@ -25,8 +26,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ControllerMeseAdmin {
 
-    private MeseAdmin model;
-    private ViewMeseAdmin view;
+    private final MeseAdmin model;
+    private final ViewMeseAdmin view;
 
     public ControllerMeseAdmin(MeseAdmin model, ViewMeseAdmin view) {
         this.model = model;
@@ -50,26 +51,36 @@ public class ControllerMeseAdmin {
 
     private void initController() {
         view.getPanou().addMouseListener(new MouseAdapter() {
+            @Override
             public void mousePressed(MouseEvent e) {
                 mouseApasat(e);
+                afiseazaMeniu(e);
             }
 
+            @Override
             public void mouseReleased(MouseEvent e) {
                 mouseEliberat();
             }
         });
 
         view.getPanou().addMouseMotionListener(new MouseAdapter() {
+            @Override
             public void mouseDragged(MouseEvent e) {
                 mouseTras(e);
             }
         });
-
-        view.getButonAdaugareMasa().addActionListener(e -> adaugaMasa());
+        
         view.getButonModStergere().addActionListener(e -> schimbaMod());
         view.getButonGestionareProduse().addActionListener(e -> gestioneazaProduse());
         view.getButonGestionareUtilizatori().addActionListener(e -> gestioneazaUtilizatori());
         view.getButonRaport().addActionListener(e -> genereazaRaport());
+    }
+    
+    public void afiseazaMeniu(MouseEvent e){
+        if (SwingUtilities.isRightMouseButton(e)){
+            JPopupMenu meniu = new MeniuClick(view, model);
+            meniu.show(view.getPanou(), e.getX(), e.getY());
+        }
     }
 
     private void initModel() {
@@ -153,37 +164,6 @@ public class ControllerMeseAdmin {
         updateView();
     }
 
-    public void adaugaMasa() {
-        String numar = view.getCampNumar().getText();
-        Masa masa = new Masa(numar);
-        Boolean eroare = model.adaugaInMemorie(masa);
-        if (eroare) {
-            JOptionPane.showMessageDialog(new JFrame(), "Exista alta masa in pozitia de spawn.");
-            return;
-        }
-        eroare = model.adaugaInBd(masa);
-        if (eroare) {
-            JOptionPane.showMessageDialog(new JFrame(), "EROARE ADAUGARE MASA IN BD");
-            // Exista sansa sa fie masa adaugata in memorie anterior
-            model.stergeDinMemorie(masa);
-            return;
-        }
-        masa.setId(BazaDeDate.returneazaUltimaCheie());
-
-        // Adauga listeneri
-        MouseListener[] m = view.getPanou().getMouseListeners();
-        for (MouseListener i : m) {
-            masa.getButon().addMouseListener(i);
-        }
-        MouseMotionListener[] n = view.getPanou().getMouseMotionListeners();
-        for (MouseMotionListener i : n) {
-            masa.getButon().addMouseMotionListener(i);
-        }
-
-        view.getPanou().add(masa.getButon());
-        updateView();
-    }
-
     public void schimbaMod() {
         model.setModStergere(!model.getModStergere());
         JOptionPane.showMessageDialog(new JFrame(), "MOD SCHIMBAT");
@@ -198,9 +178,9 @@ public class ControllerMeseAdmin {
     }
 
     public void genereazaRaport() {
-        ViewRaport view = new ViewRaport();
-        DefaultTableModel model = (DefaultTableModel) view.getTable().getModel();
-        new ControllerRaport(view, model);
+        ViewRaport viewRaport = new ViewRaport();
+        DefaultTableModel modelTabelaRaport = (DefaultTableModel) viewRaport.getTable().getModel();
+        new ControllerRaport(viewRaport, modelTabelaRaport);
     }
 
 }

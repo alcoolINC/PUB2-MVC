@@ -77,11 +77,11 @@ public class MeseAdmin extends MeseAngajat {
     public void stergeDinMemorie() {
         getListaMese().remove(getByButon(masaSelectata));
     }
-    
+
     public void stergeDinMemorie(Masa masa) {
-                getListaMese().remove(masa);
+        getListaMese().remove(masa);
     }
-    
+
     public Boolean adaugaInBd(Masa masa) {
         try {
             Connection con = BazaDeDate.getCon();
@@ -112,7 +112,21 @@ public class MeseAdmin extends MeseAngajat {
         return false;
     }
 
-    private Boolean seSuprapune(Masa masa) {
+    public Boolean stergeDinBd(int id) {
+        try {
+            java.sql.Connection con = BazaDeDate.getCon();
+            String sql = "DELETE FROM Masa WHERE id = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1, id);
+            stmt.execute();
+            stmt.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            return true;
+        }
+        return false;
+    }
+
+    public Boolean seSuprapune(Masa masa) {
         for (Masa i : getListaMese()) {
             if (masa.getButon().getBounds().intersects(i.getButon().getBounds())
                     & (masa.getButon() != i.getButon())) {
@@ -120,6 +134,15 @@ public class MeseAdmin extends MeseAngajat {
             }
         }
         return false;
+    }
+
+    public Masa getMasa(Point p) {
+        for (Masa masa : getListaMese()) {
+            if (masa.getButon().contains(p)) {
+                return masa;
+            }
+        }
+        return null;
     }
 
 }

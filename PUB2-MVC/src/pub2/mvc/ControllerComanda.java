@@ -54,7 +54,7 @@ public class ControllerComanda {
     }
 
     private void plateste() {
-        masa.getComanda().plateste();
+        masa.getComanda().getNota().adaugaInBd();
         // Reseteaza produsele si totalul
         anuleaza();
     }
