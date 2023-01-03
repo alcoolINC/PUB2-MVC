@@ -21,9 +21,9 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <NavbarItem path="/home" label="Home" />
+            <NavbarItem path="/home" label="Home" attribute="disabled" />
             <NavbarItem path="/menu" label="Menu" />
-            <NavbarItem path="/contact" label="Contact" />
+            <NavbarItem path="/contact" label="Contact" attribute="disabled" />
           </ul>
         </div>
       </div>

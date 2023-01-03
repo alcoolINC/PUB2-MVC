@@ -10,9 +10,9 @@ const Menu = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="d-flex flex-column align-items-center">
       <h1>Meniu Bar</h1>
-      <p>
+      <p className="p-3">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere sequi
         excepturi, eligendi vero ab vitae laudantium earum non autem quam velit
         provident possimus doloremque aliquam, omnis assumenda obcaecati
