@@ -9,8 +9,6 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -32,7 +30,7 @@ public class ControllerMeseAdmin {
     public ControllerMeseAdmin(MeseAdmin model, ViewMeseAdmin view) {
         this.model = model;
         this.view = view;
-        initView();   
+        initView();
         initController();
         initModel();
         updateView();
@@ -41,6 +39,7 @@ public class ControllerMeseAdmin {
     private void initView() {
         view.setVisible(true);
         view.getLabel().setText(String.valueOf(Login.getIdUserLogat()));
+        view.setResizable(false);
     }
 
     private void updateView() {
@@ -53,8 +52,12 @@ public class ControllerMeseAdmin {
         view.getPanou().addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                mouseApasat(e);
-                afiseazaMeniu(e);
+                if (SwingUtilities.isLeftMouseButton(e)) {
+                    mouseApasat(e);
+                }
+                if (SwingUtilities.isRightMouseButton(e)) {
+                    afiseazaMeniu(e);
+                }
             }
 
             @Override
@@ -66,21 +69,25 @@ public class ControllerMeseAdmin {
         view.getPanou().addMouseMotionListener(new MouseAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
-                mouseTras(e);
+                if (SwingUtilities.isLeftMouseButton(e)) {
+                    mouseTras(e);
+                }
             }
         });
-        
-        view.getButonModStergere().addActionListener(e -> schimbaMod());
+
         view.getButonGestionareProduse().addActionListener(e -> gestioneazaProduse());
         view.getButonGestionareUtilizatori().addActionListener(e -> gestioneazaUtilizatori());
         view.getButonRaport().addActionListener(e -> genereazaRaport());
     }
-    
-    public void afiseazaMeniu(MouseEvent e){
-        if (SwingUtilities.isRightMouseButton(e)){
-            JPopupMenu meniu = new MeniuClick(view, model);
-            meniu.show(view.getPanou(), e.getX(), e.getY());
+
+    public void afiseazaMeniu(MouseEvent e) {
+        Point p = new Point(e.getX(), e.getY());
+        // Pozitia e relativa fata de componenta, necesita conversie 
+        if (e.getSource() instanceof JButton) {
+            p = convertPoint((JButton) e.getSource(), p, view.getPanou());
         }
+        JPopupMenu meniu = new MeniuClick(view, model, p);
+        meniu.show(view.getPanou(), p.x, p.y);
     }
 
     private void initModel() {
@@ -97,20 +104,6 @@ public class ControllerMeseAdmin {
             // Daca nu a fost selectata o masa
             return;
         }
-
-        // Mod stergere
-        if (model.getModStergere() == true) {
-            Boolean eroare = model.stergeDinBd();
-            if (eroare) {
-                JOptionPane.showMessageDialog(new JFrame(), "EROARE STERGERE MASA IN BD");
-                return;
-            }
-            model.stergeDinMemorie();
-            view.getPanou().remove(model.getMasaSelectata());
-            updateView();
-            return;
-        }
-
         model.setPozitieStart(SwingUtilities.convertPoint(model.getMasaSelectata(),
                 e.getPoint(), model.getMasaSelectata().getParent()));
     }
@@ -164,17 +157,22 @@ public class ControllerMeseAdmin {
         updateView();
     }
 
-    public void schimbaMod() {
-        model.setModStergere(!model.getModStergere());
-        JOptionPane.showMessageDialog(new JFrame(), "MOD SCHIMBAT");
-    }
-
     public void gestioneazaProduse() {
-        new ControllerProduse(new Produse(), new ViewProduse());
+        ViewProduse viewProduse = new ViewProduse();
+        Produse modelProduse = new Produse();
+        modelProduse.setTable(viewProduse.getTable());
+        modelProduse.citesteDinBd();
+        modelProduse.completeazaTable();
+        new ControllerProduse(modelProduse, viewProduse);
     }
 
     public void gestioneazaUtilizatori() {
-        new ControllerUseri(new Useri(), new ViewUseri());
+        ViewUseri viewUseri = new ViewUseri();
+        Useri modelUseri = new Useri();
+        modelUseri.setTable(viewUseri.getTable());
+        modelUseri.citesteDinBd();
+        modelUseri.completeazaTable();
+        new ControllerUseri(modelUseri, viewUseri);
     }
 
     public void genereazaRaport() {

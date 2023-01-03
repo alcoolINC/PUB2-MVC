@@ -61,16 +61,6 @@ public class Produse {
         this.table = (DefaultTableModel) table.getModel();
     }
 
-    /**
-     * Returnează o valoare întreagă din tabela de produse
-     *
-     * @param linie linia pe care se află valoarea întreagă
-     * @param coloana coloana pe care se află valoarea întreagă
-     * @return valoare întreagă
-     */
-    public int getValoare(int linie, int coloana) {
-        return Integer.parseInt((String) table.getValueAt(linie, coloana));
-    }
 
     /**
      * Completează modelul JTable cu datele obiectelor din colecția de produse.

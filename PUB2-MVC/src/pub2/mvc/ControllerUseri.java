@@ -14,8 +14,8 @@ import javax.swing.JOptionPane;
  */
 public class ControllerUseri {
 
-    private Useri model;
-    private ViewUseri view;
+    private final Useri model;
+    private final ViewUseri view;
 
     public ControllerUseri(Useri model, ViewUseri view) {
         this.model = model;
@@ -23,14 +23,12 @@ public class ControllerUseri {
 
         initController();
         initView();
-        initModel();
-        updateView();
     }
 
     private void initView() {
-        //view.setAlwaysOnTop(true);
         view.setVisible(true);
         view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        view.setResizable(false);
     }
 
     private void updateView() {
@@ -38,7 +36,7 @@ public class ControllerUseri {
         view.getCampNume().setText("");
         view.getCampUser().setText("");
         view.getCampParola().setText("");
-        view.getCampRol().setText("");
+        view.getCheckBoxRol().setSelected(false);
     }
 
     private void initController() {
@@ -46,17 +44,11 @@ public class ControllerUseri {
         view.getButonStergere().addActionListener(e -> sterge());
     }
 
-    private void initModel() {
-        model.setTable(view.getTable());
-        model.citesteDinBd();
-        model.completeazaTable();
-    }
-
     private void adauga() {
         String nume = view.getCampNume().getText();
         String user = view.getCampUser().getText();
         String parola = view.getCampParola().getText();
-        int rol = Integer.parseInt(view.getCampRol().getText());
+        int rol = ( view.getCheckBoxRol().isSelected() ) ? 1 : 0;
 
         Boolean eroare = model.adaugaInBd(user, parola, nume, rol);
         if (eroare) {

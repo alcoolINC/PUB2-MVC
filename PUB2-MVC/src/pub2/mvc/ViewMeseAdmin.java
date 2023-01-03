@@ -33,7 +33,6 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
     private void initComponents() {
 
         campNumar = new javax.swing.JTextField();
-        butonModStergere = new javax.swing.JButton();
         butonGestionareUtilizatori = new javax.swing.JButton();
         butonGestionareProduse = new javax.swing.JButton();
         butonRaport = new javax.swing.JButton();
@@ -41,8 +40,6 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
         labelIdUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        butonModStergere.setText("mod stergere");
 
         butonGestionareUtilizatori.setText("gestioneaza utilizatori");
 
@@ -74,18 +71,16 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
                 .addComponent(panou, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(labelIdUser))
-                    .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(butonModStergere, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(butonGestionareUtilizatori, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(butonGestionareProduse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(butonRaport, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(116, 116, 116)
-                                .addComponent(campNumar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(butonRaport, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(campNumar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelIdUser))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -97,9 +92,7 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
                         .addComponent(labelIdUser)
                         .addGap(32, 32, 32)
                         .addComponent(campNumar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(butonModStergere)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(56, 56, 56)
                         .addComponent(butonGestionareUtilizatori)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(butonGestionareProduse)
@@ -125,10 +118,6 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
 
     public JButton getButonRaport() {
         return butonRaport;
-    }
-    
-    public JButton getButonModStergere() {
-        return butonModStergere;
     }
     
     public JTextField getCampNumar() {
@@ -181,7 +170,6 @@ public class ViewMeseAdmin extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton butonGestionareProduse;
     private javax.swing.JButton butonGestionareUtilizatori;
-    private javax.swing.JButton butonModStergere;
     private javax.swing.JButton butonRaport;
     private javax.swing.JTextField campNumar;
     private javax.swing.JLabel labelIdUser;

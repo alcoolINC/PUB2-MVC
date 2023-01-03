@@ -6,7 +6,9 @@
 package pub2.mvc;
 
 import com.mysql.jdbc.Connection;
+import java.awt.Dimension;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.MouseMotionListener;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -22,38 +24,27 @@ public class MeseAdmin extends MeseAngajat {
 
     private Point pozitieStart;
     private JButton masaSelectata;
-    private Boolean modStergere;
 
     public MeseAdmin() {
         super();
         pozitieStart = null;
         masaSelectata = null;
-        modStergere = false;
-
     }
 
-    public void setPozitieStart(Point p) {
-        pozitieStart = p;
+    public void setPozitieStart(Point pozitieStart) {
+        this.pozitieStart = pozitieStart;
     }
 
     public Point getPozitieStart() {
         return pozitieStart;
     }
 
-    public void setMasaSelectata(JButton m) {
-        masaSelectata = m;
+    public void setMasaSelectata(JButton butonMasa) {
+        masaSelectata = butonMasa;
     }
 
     public JButton getMasaSelectata() {
         return masaSelectata;
-    }
-
-    public Boolean getModStergere() {
-        return modStergere;
-    }
-
-    public void setModStergere(Boolean status) {
-        modStergere = status;
     }
 
     public void adaugaMotionListener(JPanel panou) {
@@ -74,10 +65,6 @@ public class MeseAdmin extends MeseAngajat {
         return false;
     }
 
-    public void stergeDinMemorie() {
-        getListaMese().remove(getByButon(masaSelectata));
-    }
-
     public void stergeDinMemorie(Masa masa) {
         getListaMese().remove(masa);
     }
@@ -90,20 +77,6 @@ public class MeseAdmin extends MeseAngajat {
             stmt.setString(1, masa.getButon().getText());
             stmt.setInt(2, masa.getButon().getX());
             stmt.setInt(3, masa.getButon().getY());
-            stmt.execute();
-            stmt.close();
-        } catch (ClassNotFoundException | SQLException ex) {
-            return true;
-        }
-        return false;
-    }
-
-    public Boolean stergeDinBd() {
-        try {
-            java.sql.Connection con = BazaDeDate.getCon();
-            String sql = "DELETE FROM Masa WHERE id = ?";
-            PreparedStatement stmt = con.prepareStatement(sql);
-            stmt.setInt(1, getByButon(masaSelectata).getId());
             stmt.execute();
             stmt.close();
         } catch (ClassNotFoundException | SQLException ex) {
@@ -136,9 +109,11 @@ public class MeseAdmin extends MeseAngajat {
         return false;
     }
 
-    public Masa getMasa(Point p) {
+    public Masa getMasa(Point punctDinPanou) {
         for (Masa masa : getListaMese()) {
-            if (masa.getButon().contains(p)) {
+            if (new Rectangle(masa.getButon().getLocation(),
+                    new Dimension(masa.getLatura(),
+                            masa.getLatura())).contains(punctDinPanou)) {
                 return masa;
             }
         }

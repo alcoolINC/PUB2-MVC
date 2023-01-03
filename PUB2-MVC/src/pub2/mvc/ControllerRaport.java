@@ -8,7 +8,6 @@ package pub2.mvc;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.Document;
 
 /**
  *
@@ -30,9 +29,9 @@ public class ControllerRaport {
     }
 
     private void initView() {
-        //view.setAlwaysOnTop(true);
         view.setVisible(true);
         view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        view.setResizable(false);
     }
 
     private void updateView() {

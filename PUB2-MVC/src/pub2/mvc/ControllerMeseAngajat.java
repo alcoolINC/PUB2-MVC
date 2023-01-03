@@ -31,6 +31,7 @@ public class ControllerMeseAngajat {
     private void initView() {
         view.setVisible(true);
         view.getLabel().setText(String.valueOf(Login.getIdUserLogat()));
+        view.setResizable(false);
     }
 
     private void updateView() {

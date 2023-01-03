@@ -21,15 +21,21 @@ public class MeniuClick extends JPopupMenu {
 
     private final ViewMeseAdmin view;
     private final MeseAdmin model;
+    private final Point pozitieMeniu;
 
-    public MeniuClick(ViewMeseAdmin view, MeseAdmin model) {
+    public MeniuClick(ViewMeseAdmin view, MeseAdmin model, Point pozitieMeniu) {
 
         this.view = view;
         this.model = model;
+        this.pozitieMeniu = pozitieMeniu;
 
         JMenuItem optiuneAdaugare = new JMenuItem("adauga masa");
         optiuneAdaugare.addActionListener(e -> adaugaMasa());
         this.add(optiuneAdaugare);
+
+        JMenuItem optiuneStergere = new JMenuItem("sterge masa");
+        optiuneStergere.addActionListener(e -> stergeMasa());
+        this.add(optiuneStergere);
     }
 
     public void adaugaMasa() {
@@ -37,7 +43,7 @@ public class MeniuClick extends JPopupMenu {
         Point p = view.getPanou().getMousePosition();
         Masa masa = new Masa(numar, p.x, p.y);
         if (model.seSuprapune(masa)) {
-            System.out.println("eroare suprapunere");
+            JOptionPane.showMessageDialog(new JFrame(), "EROARE SUPRAPUNERE");
             return;
         }
         model.getListaMese().add(masa);
@@ -62,6 +68,17 @@ public class MeniuClick extends JPopupMenu {
         }
 
         view.getPanou().add(masa.getButon());
+        updateView();
+    }
+
+    public void stergeMasa() {
+        Masa deSters = model.getMasa(pozitieMeniu);
+        if (deSters == null) {
+            return;
+        }
+        model.stergeDinMemorie(deSters);
+        model.stergeDinBd(deSters.getId());
+        view.getPanou().remove(deSters.getButon());
         updateView();
     }
 

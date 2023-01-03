@@ -8,14 +8,14 @@ package pub2.mvc;
 import javax.swing.JFrame;
 
 /**
- * 
+ *
  * @author User
  */
 public class ControllerComanda {
 
-    private Masa masa;
-    private Produse modelProduse;
-    private ViewComanda view;
+    private final Masa masa;
+    private final Produse modelProduse;
+    private final ViewComanda view;
 
     public ControllerComanda(Masa masa, Produse modelProduse,
             ViewComanda view) {
@@ -29,6 +29,7 @@ public class ControllerComanda {
         view.setVisible(true);
         view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         view.setTitle(masa.getButon().getText());
+        view.setResizable(false);
     }
 
     public void initController() {

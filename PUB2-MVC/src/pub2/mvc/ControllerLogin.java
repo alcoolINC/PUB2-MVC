@@ -26,6 +26,7 @@ public class ControllerLogin {
 
     public void initView() {
         view.setVisible(true);
+        view.setResizable(false);
     }
     
     public void updateView() {

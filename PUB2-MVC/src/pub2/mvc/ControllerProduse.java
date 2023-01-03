@@ -5,6 +5,8 @@
  */
 package pub2.mvc;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -14,48 +16,57 @@ import javax.swing.JOptionPane;
  */
 public class ControllerProduse {
 
-    private Produse model;
-    private ViewProduse view;
+    private final Produse model;
+    private final ViewProduse view;
 
     public ControllerProduse(Produse model, ViewProduse view) {
         this.model = model;
         this.view = view;
 
-        initController();
         initView();
-        initModel();
-        updateView();
+        initController();
     }
 
     private void initView() {
-        //view.setAlwaysOnTop(true);
         view.setVisible(true);
         view.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        view.setResizable(false);
     }
 
     private void updateView() {
         view.getTable().repaint();
         view.getCampNume().setText("");
         view.getCampPret().setText("");
-        view.getCampCategorie().setText("");
+        view.getComboBoxCategorie().setSelectedIndex(0);
     }
 
     private void initController() {
         view.getButonAdaugare().addActionListener(e -> adauga());
         view.getButonStergere().addActionListener(e -> sterge());
         view.getButonModificare().addActionListener(e -> modifica());
-    }
-
-    private void initModel() {
-        model.setTable(view.getTable());
-        model.citesteDinBd();
-        model.completeazaTable();
+        
+        view.getTable().addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (view.getTable().getSelectedRowCount() != 1) {
+                    return;
+                }
+                
+                int indexRand = view.getTable().getSelectedRow();
+                view.getCampNume().setText(
+                        (String) model.getTable().getValueAt(indexRand, 1));
+                view.getCampPret().setText(
+                        (String) model.getTable().getValueAt(indexRand, 2));
+                view.getComboBoxCategorie().setSelectedItem(
+                        (String) model.getTable().getValueAt(indexRand, 3));
+            }
+        });
     }
 
     private void adauga() {
         String nume = view.getCampNume().getText();
         int pret = Integer.parseInt(view.getCampPret().getText());
-        String categorie = view.getCampCategorie().getText();
+        String categorie = (String) view.getComboBoxCategorie().getSelectedItem();
 
         Boolean eroare = model.adaugaInBd(nume, pret, categorie);
         if (eroare) {
@@ -78,7 +89,8 @@ public class ControllerProduse {
         }
 
         int indexRand = view.getTable().getSelectedRow();
-        int id = model.getValoare(indexRand, 0);
+        int id = Integer.parseInt(
+                (String) model.getTable().getValueAt(indexRand, 0));
 
         Boolean eroare = model.stergeDinBd(id);
         if (eroare) {
@@ -93,15 +105,16 @@ public class ControllerProduse {
     }
 
     private void modifica() {
-        if (view.getTable().getSelectedColumnCount() != 1) {
+        if (view.getTable().getSelectedRowCount() != 1) {
             return;
         }
 
         int indexRand = view.getTable().getSelectedRow();
-        int id = model.getValoare(indexRand, 0);
+        int id = Integer.parseInt(
+                (String) model.getTable().getValueAt(indexRand, 0));
         String nume = view.getCampNume().getText();
         int pret = Integer.parseInt(view.getCampPret().getText());
-        String categorie = view.getCampCategorie().getText();
+        String categorie = (String) view.getComboBoxCategorie().getSelectedItem();
 
         Boolean eroare = model.modificaInBd(id, nume, pret, categorie);
         if (eroare) {
@@ -113,5 +126,9 @@ public class ControllerProduse {
         model.completeazaTable();
         model.serializeaza();
         updateView();
+    }
+
+    public void completeazaDate() {
+
     }
 }
